@@ -1,21 +1,14 @@
 //Exercicio 4 - Vetores - ED
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 
 #define TAM 40
 
- int aleatorio(int tam){
-    int x;
-    x = rand() % 100;
-    return x;
-}
-
 void selection(int v[TAM]){
     int i, j, aux, menor;
-    for (i = 0; i < TAM-1; i++) {
+    for (i = 0; i < TAM; i++) {
       menor = i;
-        for (j = i+1; j < TAM; j++){
+        for (j = i; j < TAM; j++){
             if (v[j]<v[menor]){
             menor = j;
             }
@@ -30,24 +23,21 @@ void selection(int v[TAM]){
 }
 
 int main () {
-    clock_t tempo;
     int v[TAM];
     int i;
 
     for (i = 0; i < TAM; i++){
-        v[i] = aleatorio(TAM);
+        v[i] = rand() % 100;
         printf("%d - ", v[i]);
     }
 
 
-  printf("\nOrdenados (Bubble Sort):\n");
-    tempo = clock();
+	printf("\nOrdenados (Selection Sort):\n");
     selection(v);
-    tempo = clock() - tempo;
 
-  for (i = 0; i < TAM; i++){
-    printf("%d - ", v[i]);
-  }
+	for (i = 0; i < TAM; i++){
+    	printf("%d - ", v[i]);
+	}
 
-  printf("\nTempo de execucao: %lf", ((double)tempo)/CLOCKS_PER_SEC);
+	return 0;
 }

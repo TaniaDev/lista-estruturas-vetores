@@ -4,18 +4,12 @@
 
 #define TAM 30
 
- int aleatorio(int tam){
-    int x;
-    x = rand() % 100;
-    return x;
-}
-
 int main () {
     int v[TAM], i;
     float soma = 0;
 
     for (i = 0; i < TAM; i++){
-        v[i] = aleatorio(TAM);
+        v[i] = rand() % 100;
         printf("%d - ", v[i]);
     }
     for (i = 0; i < TAM; i++){
@@ -23,4 +17,5 @@ int main () {
     }
 
     printf("\nMedia Aritmetica: %.2f", soma/TAM);
+    return 0;
 }
